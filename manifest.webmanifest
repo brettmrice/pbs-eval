@@ -1,0 +1,32 @@
+{
+    "name": "Peripheral Blood Smear Evaluation Tool",
+    "short_name": "PBS Eval",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "App to assist in peripheral blood smear WBC, RBC, and PLT evaluations.",
+    "icons": [
+      {
+        "src": "imgs/icons/icon_pbs.svg",
+        "sizes": "any"
+      }
+    ],
+    "screenshots" : [
+      {
+        "src": "imgs/screenshot_narrow.png",
+        "sizes": "450x1874",
+        "type": "image/png",
+        "form_factor": "narrow",
+        "label": "Mobile or Squished View"
+      },
+      {
+        "src": "imgs/screenshot_wide.png",
+        "sizes": "1680x2774",
+        "type": "image/png",
+        "form_factor": "wide",
+        "label": "Browser or Expanded View"
+      }
+    ]
+    
+  }
+  
