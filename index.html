@@ -1,18 +1,1654 @@
 <!DOCTYPE html>
-<html lang="en-US">
-    <head lang="en-US" dir="ltr">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PBS Evaluation</title>
-        <link rel="icon" href="imgs/icons/icon_pbs.ico" />
-        <link rel="manifest" href="manifest.webmanifest" />
-    <meta http-equiv="Refresh" content="0; URL=file:///H:/ClinPath/site/labtools/Diff-PBS/index.html" />
-  </head>
-  <body>
-    <script>
-        if('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('sw.js', { scope: './' });
-        }
-    </script>
-  </body>
+<head lang="en-US" dir="ltr">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PBS Evaluation</title>
+  <link rel="icon" href="imgs/icons/icon_pbs.ico" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+</head>
+
+<body class="noscroll">
+
+<div id="ui">
+  
+<!-- 
+      Header
+-->
+
+  <div id="page_title"
+        class="flex-container">
+    <div class="flex-full">
+      <h1>
+        <span class="h1-full">Peripheral Blood Smear Evaluation</span>
+        <span class="h1-medium">PBS Evaluation</span>
+        <span class="h1-short">PBS EVAL</span>
+      </h1>
+    </div>
+  </div>
+  
+<!--
+    Tasks
+-->
+
+  <div id="task_selection_and_id_area" 
+        class="flex-container">
+    
+      
+      <div id="task_area"
+            style="flex:1 1 40%;margin-right:10px;">
+        
+        <h3 style="text-align:center;
+                    border-bottom:solid;">Task</h3>
+      
+      <div class="flex-container"
+            style="margin:auto;">
+        
+      <!-- WBC Tasks -->
+      <div class="flex-container task_containers"
+            style="width:100%;">
+        <div class="task_descr">
+          <div class="task_descr_format task_active">
+            <span class="flex-cell-types-full-name">White Blood Cell</span>
+            <span class="flex-cell-types-short-name">WBC</span>
+            <span class="flex-cell-types-acronym-name">WBC</span>
+          </div>
+        </div>
+        <div id="task_wbc_diff">
+          <div class="task_to_do_diff_morph task_active">
+            <span class="flex-cell-types-full-name">Differential</span>
+            <span class="flex-cell-types-short-name">Differential</span>
+            <span class="flex-cell-types-acronym-name">DIFF</span>
+          </div>
+        </div>
+        <div id="task_wbc_est">
+          <div class="task_to_do_est">
+            <span class="flex-cell-types-full-name">Estimate</span>
+            <span class="flex-cell-types-short-name">Estimate</span>
+            <span class="flex-cell-types-acronym-name">EST</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- RBC Tasks -->
+      <div class="flex-container task_containers"
+            style="width:100%;">
+        <div class="task_descr">
+          <div class="task_descr_format task_active">
+            <span class="flex-cell-types-full-name">Red Blood Cell</span>
+            <span class="flex-cell-types-short-name">RBC</span>
+            <span class="flex-cell-types-acronym-name">RBC</span>
+          </div>
+        </div>
+        <div id="task_rbc_morph">
+          <div class="task_to_do_diff_morph task_active">
+            <span class="flex-cell-types-full-name">Morphology</span>
+            <span class="flex-cell-types-short-name">Morphology</span>
+            <span class="flex-cell-types-acronym-name">MORPH</span>
+          </div>
+        </div>
+        <div id="task_rbc_est">
+          <div class="task_to_do_est"
+                style="visibility:hidden;
+                        pointer-events:none;">
+            <span class="flex-cell-types-full-name">Estimate</span>
+            <span class="flex-cell-types-short-name">Estimate</span>
+            <span class="flex-cell-types-acronym-name">EST</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- PLT Tasks -->
+      <div class="flex-container task_containers"
+            style="width:100%;">
+        <div class="task_descr">
+          <div class="task_descr_format task_active">
+            <span class="flex-cell-types-full-name">Platelet</span>
+            <span class="flex-cell-types-short-name">PLT</span>
+            <span class="flex-cell-types-acronym-name">PLT</span>
+          </div>
+        </div>
+        <div id="task_plt_morph">
+          <div class="task_to_do_diff_morph task_active">
+            <span class="flex-cell-types-full-name">Morphology</span>
+            <span class="flex-cell-types-short-name">Morphology</span>
+            <span class="flex-cell-types-acronym-name">MORPH</span>
+          </div>
+        </div>
+        <div id="task_plt_est">
+          <div class="task_to_do_est">
+            <span class="flex-cell-types-full-name">Estimate</span>
+            <span class="flex-cell-types-short-name">Estimate</span>
+            <span class="flex-cell-types-acronym-name">EST</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+      
+    </div>
+    
+    <div id="id_area"
+            style="flex:1 1 40%;margin-right:10px;">
+      
+      <div class="flex-full">
+        <h3 style="text-align:center;
+                      border-bottom:solid;">Identification</h3>
+      </div>
+      
+      <div class="flex-container"
+            style="flex-direction:column; flex-wrap:nowrap;">
+        
+        <div class="id-flex-third"
+              title="Medical Record Number or another identifier">
+          
+          <div style="min-width:35px;margin: auto 0;text-align:right;">
+            <label for="ID1" style="padding-right:5px;align-self:center;">ID1:</label>
+          </div>
+          <div style="width:100%">
+            <input type="text" id="ID1" placeholder="MRN" autofocus
+                    onfocus="cursor_at_end(this);">
+          </div>
+        </div>
+        <div class="id-flex-third"
+              title="Accession Number or another identifier">
+          <div style="min-width:35px;margin: auto 0;text-align:right;">
+            <label for="ID2" style="padding-right:5px;align-self:center;">ID2:</label>
+          </div>
+          <input type="text" id="ID2" placeholder="Accession"
+                  onfocus="cursor_at_end(this);">
+        </div>
+        <div class="id-flex-third"
+              title="Performing Laboratory Scientist">
+          <div style="min-width:35px;margin: auto 0;text-align:right;">
+            <label for="LS" style="padding-right:5px;align-self:center;">LS:</label>
+          </div>
+          <input type="text" id="LS" placeholder="Performed by..."
+                  onfocus="cursor_at_end(this);">
+        </div>
+        
+        
+      </div>
+      
+    </div>
+    
+    <div id="instrument_area"
+          style="min-width:105px;">
+      
+      <div>
+        <h3 style="text-align:center;
+                      border-bottom:solid;">Instrument</h3>
+      </div>
+      
+      <div id="instr_wbc_unc_corr"
+            class="flex-container">
+        
+        <div class="flex-container"
+              style="flex-direction:column;
+                      justify-content:center;">
+          
+          <div title="Uncorrected WBC"  
+                style="text-align:center;
+                        margin: 2px auto;
+                        min-width:110px;">
+            <label for="UCWBC"  
+                    style="display:inline-block;
+                            padding-right:3px;
+                            margin:auto 0;
+                            text-align:right;
+                            min-width:55px;">
+                WBC<sub style="font-size:60%;">UN</sub>:</label>
+            <input type="number" id="UCWBC" placeholder="#.#" size="3"
+                    style="width:50px;"
+                    onfocus="cursor_at_end(this);ucwbc_check();"
+                    onfocusout="ucwbc_check();"
+                    onkeyup="ucwbc_check();">
+          </div>
+          
+          <div title="Corrected WBC = (100 * WBC_UN)/(100 + nRBC)"
+                style="text-align:center;
+                        margin: 2px auto;
+                        min-width:110px;
+                        display:none;">
+            <label for="WBC"   
+                    style="display:inline-block;
+                            padding-right:3px;
+                            margin:auto 0;
+                            text-align:right;
+                            min-width:55px;">
+              WBC<sub style="font-size:60%;">C</sub>:</label>
+            <input type="number" id="WBC" placeholder="" size="3" disabled
+                    style="border:none;color:black;width:50px;">
+          </div>
+          
+        </div>
+        
+        <div class="flex-container"
+              style="flex-direction:column;">
+        
+          <div title="Estimated WBC Count" 
+                style="text-align:center;
+                        margin: 2px auto;
+                        min-width:110px;
+                        display:inline;">
+            <label for="value_wbc_est" 
+                    style="display:inline-block;
+                            padding-right:3px;
+                            margin:auto 0;
+                            text-align:right;
+                            min-width:55px;">
+              WBC<sub style="font-size:60%;">EST</sub>:</label>
+            <input type="number" id="value_wbc_est" placeholder="" size="3" disabled
+                    style="border-style:none;width:50px;">
+          </div>
+          
+          <div title="Estimated Platelet Count" 
+                style="text-align:center;
+                        margin: 2px auto;
+                        min-width:110px;
+                        display:none;">
+            <label for="value_plt_est"   
+                    style="display:inline-block;
+                            padding-right:3px;
+                            margin:auto 0;
+                            text-align:right;
+                            min-width:55px;">
+              PLT<sub style="font-size:60%;">EST</sub>:</label>
+            <input type="number" id="value_plt_est" placeholder="" size="3" disabled
+                    style="border-style:none;width:50px;">
+          </div>
+          
+        </div>
+      
+      </div>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+<!-- 
+      Estimate Keys
+-->
+  <div id="est_keys_counts" 
+        class="flex-container">
+    
+    <div class="flex-full">
+      <h3>Estimates</h3>
+    </div>
+    
+<!-- WBC Estimate -->
+    <div id="wbc_estimate_print_area"
+      class="flex-container">
+    
+      <div id="est_print_area_wbc" class="est_print_area">
+        <span style="padding-right:10px">WBC:</span>
+        <span id="est_print_area_wbc_values"
+                style="font-weight:normal;">
+          Fields: 0 | Avg WBC: 0 | Factor: 2.0 &#8756; WBC Estimate = 0
+        </span>
+      </div>
+    </div>
+
+      <div id="wbc_estimate_area"
+          class="flex-container">
+      
+      <div class=""
+              style="font-weight:bold;padding: 3px 0;
+                      border-bottom: 2px solid black;">
+        <div style="text-align:left;display:inline;">White Blood Cell Estimate</div>
+      </div>
+      
+      <div class="flex-container"
+            style="flex-direction:row;
+                    flex-wrap:nowrap;">
+        
+        <div class="flex-container"
+              style="flex-direction:column;">
+          
+          <div style="padding:5px;">
+            <!-- WBC Field -->
+            <input type="text" id="est_wbc_field_key"
+                    style="width:40px;"
+                    value="1" size="1" maxlength="1"
+                    onkeypress="update_wbc_est_calc();">
+            <label for="est_wbc_field_key">Field</label>
+          </div>
+          
+          <div style="padding:5px;">
+            <!-- WBC Key -->
+            <input type="text" id="est_wbc_count_key"
+                    style="width:40px;"
+                    value="2" size="1" maxlength="1"
+                    onkeypress="update_wbc_est_calc();">
+            <label for="est_wbc_count_key">WBC</label>
+          </div>
+          
+          <div style="padding:5px;">
+            <!-- WBC Key -->
+            <input type="number" id="est_wbc_factor"
+                    style="border: none;
+                            border-bottom: 1px solid gray;
+                            margin:2px 2px 1px 2px;
+                            width:36px;"
+                    value="2.0" size="1" maxlength="1"
+                    onfocus="cursor_at_end(this);"
+                    onkeypress="update_wbc_est_calc();"
+                    onfocusout="check_est_factor_valid();">
+            <label for="est_wbc_factor">Factor</label>
+          </div>
+        </div>
+      
+        <div class="flex-container" 
+              style="flex: 1 0;
+                      margin:5px;
+                      flex-direction:column;
+                      flex-wrap:nowrap">
+          <div title="Perform estimates using the keyboard associations (left)"
+                class="flex-full"
+                style="text-align:left;align-self:center;width:100%">
+            <textarea id="est_wbc_counts" rows="1"
+                        class="textarea_empty"
+                        style="padding:2px 0;"
+                        placeholder="Type the respective Field and WBC keys (left)"
+                        spellcheck="false"
+                        onfocus="cursor_at_end(this);"
+                        onfocusout=""
+                        onkeydown="update_letter_spacing(this);
+                                    remove_white_space(this);"
+                        onkeyup="OnInput(event);
+                                  update_wbc_est_calc();"
+                        onkeypress="update_wbc_est_calc();"></textarea>
+          </div>
+          <div class="flex-full"
+                  style="margin-top:5px;text-align:center;">
+            <span style="padding-right:2px;"
+              >Fields:
+                <span id="wbc_est_num_fields"
+                        style="padding-right:10px;">0</span></span>
+            <span style="padding-right:2px;"
+              >Avg WBC:
+                <span id="wbc_est_avg_wbc"
+                        style="padding-right:10px;">0</span></span>
+          </div>
+          <div class="flex-full"
+                  style="margin-top:5px;text-align:center;">
+            <span style="padding-right:2px;display: inline-block;"
+              >WBC<sub style="font-size:60%;padding: 0 5px 0 0;">EST</sub>=
+                <span id="wbc_est_calc_val"
+                        style="padding-right:10px;">0</span></span>
+          </div>
+          
+          <div id="est_wbc_key_warning"
+                class="flex-full"
+                style="display:none;">
+            <span style="color:red;font-weight:bold;">Warning(s):</span>
+            <ul id="est_wbc_key_warning_area">
+              <li>Missing</li>
+            </ul> 
+          </div>
+        </div>
+        
+      </div>
+        
+    </div>
+    
+<!-- PLT Estimate -->
+    <div id="plt_estimate_print_area"
+          class="flex-container">
+      
+      <div id="est_print_area_plt" class="est_print_area">
+        <span style="padding-right:10px">PLT:</span>
+        <span id="est_print_area_plt_values"
+                style="font-weight:normal;">
+          Fields: 0 | Avg WBC: 0 | Factor: 25 &#8756; PLT Estimate = 0
+        </span>
+      </div>
+    </div>
+      
+    <div id="plt_estimate_area"
+        class="flex-container">
+    
+      <div class="flex-container"
+              style="font-weight:bold;padding: 3px 0;
+                      border-bottom: 2px solid black;">
+        <div style="text-align:left;display:inline;">Platelet Estimate</div>
+      </div>
+      
+      <div class="flex-container"
+            style="flex-direction:row;
+                    flex-wrap:nowrap;">
+      
+        <div class="flex-container"
+              style="flex-direction:column;">
+          
+          <div style="padding:5px;">
+            <!-- PLT Field -->
+            <input type="text" id="est_plt_field_key"
+                    style="width:40px;"
+                    value="1" size="1" maxlength="1">
+            <label for="est_plt_field_key">Field</label>
+          </div>
+          
+          <div style="padding:5px;">
+            <!-- PLT Key -->
+            <input type="text" id="est_plt_count_key"
+                    style="width:40px;"
+                    value="3" size="1" maxlength="1">
+            <label for="est_plt_count_key">PLT</label>
+          </div>
+          
+          <div style="padding:5px;">
+            <!-- PLT Key -->
+            <input type="number" id="est_plt_factor"
+                    style="border: none;
+                            border-bottom: 1px solid gray;
+                            margin:2px 2px 1px 2px;
+                            width:36px;"
+                    value="25" size="1" maxlength="1"
+                    onfocus="cursor_at_end(this);"
+                    onkeypress="update_plt_est_calc();"
+                    onkeyup="update_plt_est_calc();"
+                    onfocusout="check_est_factor_valid();">
+            <label for="est_plt_factor">Factor</label>
+          </div>
+        </div>
+      
+        <div class="flex-container" 
+              style="flex: 1 0;
+                      margin:5px;
+                      flex-direction:column;
+                      flex-wrap:nowrap">
+          <div title="Perform estimates using the keyboard associations (left)"
+                class="flex-full"
+                style="text-align:left;align-self:center;width:100%">
+            <textarea id="est_plt_counts" rows="1"
+                        class="textarea_empty"
+                        style="padding:2px 0;"
+                        placeholder="Type the respective Field and PLT keys (left)"
+                        spellcheck="false"
+                        onfocus="cursor_at_end(this);"
+                        onfocusout=""
+                        onkeydown="update_letter_spacing(this);
+                                    remove_white_space(this);"
+                        onkeyup="OnInput(event);
+                                  update_plt_est_calc(this);"
+                        onkeypress="update_plt_est_calc();"></textarea>
+          </div>
+          <div class="flex-full"
+                  style="margin-top:5px;text-align:center;">
+            <span style="padding-right:2px;"
+              >Fields:
+                <span id="plt_est_num_fields"
+                        style="padding-right:10px;">0</span></span>
+            <span style="padding-right:2px;"
+              >Avg PLT:
+                <span id="plt_est_avg_plt"
+                        style="padding-right:10px;">0</span></span>
+          </div>
+          <div class="flex-full"
+                  style="margin-top:5px;text-align:center;">
+            <span style="padding-right:2px;"
+              >Avg PLT:
+                <span id="plt_est_calc_val"
+                        style="padding-right:10px;">0</span></span>
+          </div>
+          <div id="est_plt_key_warning"
+                class="flex-full"
+                style="display:none;">
+            <span style="color:red;font-weight:bold;">Warning(s):</span>
+            <ul id="est_plt_key_warning_area">
+              <li>Missing</li>
+            </ul> 
+          </div>
+        </div>
+        
+      </div>
+        
+    </div>
+    
+  </div>
+    
+
+<!-- Begin Cell Differential area -->
+
+  <!-- WBC Differential Area -->
+  <div id="wbc_diff_area">
+  
+  <!--
+      Cell Concentrations
+  -->
+
+  <div id="cell_conc_diff_area"
+        class="flex-container"
+        style="">
+    
+    <div class="flex-full">
+      <h3 style="text-align:left;">White Blood Cells</h3>
+    </div>
+
+    <div id="wbc_area">
+      
+      <div id="cell_concentrations"
+            class="flex-cell-concentrations"
+             style=""> <!-- sytle="display:flex;width:50%;" -->
+        <div id="cell_conc_cells_head">
+          <div>Key</div>
+          <div id="conc_name_header">
+            <span class="flex-cell-types-full-name">Cell Type</span>
+            <span class="flex-cell-types-short-name">Cell Type</span>
+            <span class="flex-cell-types-acronym-name">CELL</span>
+          </div>
+          <div>#</div>
+          <div>%</div>
+          <div>/&#181;L</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_seg"
+                    value="1" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_seg">
+            <span class="flex-cell-types-full-name">Neutrophil, Segmented</span>
+            <span class="flex-cell-types-short-name">Neut, Seg</span>
+            <span class="flex-cell-types-acronym-name">NE,SEG</span>
+          </div>
+          <div id="conc_num_seg">0</div>
+          <div id="conc_perc_seg">0</div>
+          <div id="conc_abs_seg">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_band"
+                    value="4" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_band">
+            <span class="flex-cell-types-full-name">Neutrophil, Band</span>
+            <span class="flex-cell-types-short-name">Neut, Band</span>
+            <span class="flex-cell-types-acronym-name">NE,BAND</span>
+          </div>
+          <div id="conc_num_band">0</div>
+          <div id="conc_perc_band">0</div>
+          <div id="conc_abs_band">0</div>
+        </div>
+        
+        <div class="cell_conc_cells
+                      cell_conc_cells_no_total">
+          <div></div>
+          <div id="conc_name_neut_seg_band"
+                style="text-align:right;">
+            <span class="flex-cell-types-full-name">Neutrophil, Seg + Band</span>
+            <span class="flex-cell-types-short-name">Neut,  Seg+Band</span>
+            <span class="flex-cell-types-acronym-name">NE,SE+BA</span>
+          </div>
+          <div id="conc_num_seg_band">0</div>
+          <div id="conc_perc_seg_band">0</div>
+          <div id="conc_abs_seg_band">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_meta"
+                    value="9" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_meta">
+            <span class="flex-cell-types-full-name">Neutrophil, Metamyelocyte</span>
+            <span class="flex-cell-types-short-name">Neut, Meta</span>
+            <span class="flex-cell-types-acronym-name">NE,META</span>
+          </div>
+          <div id="conc_num_meta">0</div>
+          <div id="conc_perc_meta">0</div>
+          <div id="conc_abs_meta">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_myelo"
+                    value="8" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_myelo">
+            <span class="flex-cell-types-full-name">Neutrophil, Myelocyte</span>
+            <span class="flex-cell-types-short-name">Neut, Myelo</span>
+            <span class="flex-cell-types-acronym-name">NE,MYELO</span>
+          </div>
+          <div id="conc_num_myelo">0</div>
+          <div id="conc_perc_myelo">0</div>
+          <div id="conc_abs_myelo">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_pro"
+                    value="7" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_pro">
+            <span class="flex-cell-types-full-name">Neutrophil, Promyelocyte</span>
+            <span class="flex-cell-types-short-name">Neut, Promyelo</span>
+            <span class="flex-cell-types-acronym-name">NE,PRO</span>
+          </div>
+          <div id="conc_num_pro">0</div>
+          <div id="conc_perc_pro">0</div>
+          <div id="conc_abs_pro">0</div>
+        </div>
+        
+        <div class="cell_conc_cells
+                      cell_conc_cells_no_total">
+          <div></div>
+          <div id="conc_name_neut_all"
+                style="text-align:right;">
+            <span class="flex-cell-types-full-name">Neutrophil, All Stages</span>
+            <span class="flex-cell-types-short-name">Neut, All</span>
+            <span class="flex-cell-types-acronym-name">NE,ALL</span>
+          </div>
+          <div id="conc_num_neut_all">0</div>
+          <div id="conc_perc_neut_all">0</div>
+          <div id="conc_abs_neut_all">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_lymph"
+                    value="2" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_lymph">
+            <span class="flex-cell-types-full-name">Lymphocyte</span>
+            <span class="flex-cell-types-short-name">Lymph</span>
+            <span class="flex-cell-types-acronym-name">LY</span>
+          </div>
+          <div id="conc_num_lymph">0</div>
+          <div id="conc_perc_lymph">0</div>
+          <div id="conc_abs_lymph">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_lymph_reactive"
+                    value="0" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_lymph_reactive">
+            <span class="flex-cell-types-full-name">Lymphocyte, Reactive</span>
+            <span class="flex-cell-types-short-name">Lymph, Rct</span>
+            <span class="flex-cell-types-acronym-name">LY,REAC</span>
+          </div>
+          <div id="conc_num_lymph_reactive">0</div>
+          <div id="conc_perc_lymph_reactive">0</div>
+          <div id="conc_abs_lymph_reactive">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_lymph_plasma"
+                    value="/" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_plasma">
+            <span class="flex-cell-types-full-name">Lymphocyte, Plasma</span>
+            <span class="flex-cell-types-short-name">Lymph, Plasma</span>
+            <span class="flex-cell-types-acronym-name">LY,PLAS</span>
+          </div>
+          <div id="conc_num_lymph_plasma">0</div>
+          <div id="conc_perc_lymph_plasma">0</div>
+          <div id="conc_abs_lymph_plasma">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_mono"
+                    value="3" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_mono">
+            <span class="flex-cell-types-full-name">Monocyte</span>
+            <span class="flex-cell-types-short-name">Monocyte</span>
+            <span class="flex-cell-types-acronym-name">MONO</span>
+          </div>
+          <div id="conc_num_mono">0</div>
+          <div id="conc_perc_mono">0</div>
+          <div id="conc_abs_mono">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_eo"
+                    value="5" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_eo">
+            <span class="flex-cell-types-full-name">Eosinophil</span>
+            <span class="flex-cell-types-short-name">Eosino</span>
+            <span class="flex-cell-types-acronym-name">EOS</span>
+          </div>
+          <div id="conc_num_eo">0</div>
+          <div id="conc_perc_eo">0</div>
+          <div id="conc_abs_eo">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_baso"
+                    value="6" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_baso">
+            <span class="flex-cell-types-full-name">Basophil</span>
+            <span class="flex-cell-types-short-name">Basophil</span>
+            <span class="flex-cell-types-acronym-name">BASO</span>
+          </div>
+          <div id="conc_num_baso">0</div>
+          <div id="conc_perc_baso">0</div>
+          <div id="conc_abs_baso">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_blast"
+                    value="+" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_blast">
+            <span class="flex-cell-types-full-name">Blast</span>
+            <span class="flex-cell-types-short-name">Blast</span>
+            <span class="flex-cell-types-acronym-name">BLAST</span>
+          </div>
+          <div id="conc_num_blast">0</div>
+          <div id="conc_perc_blast">0</div>
+          <div id="conc_abs_blast">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_abn_wbc"
+                    value="-" size="1" maxlength="1">
+          </div>
+          <div id="conc_name_abn_wbc">
+            <span class="flex-cell-types-full-name">Abnormal WBC</span>
+            <span class="flex-cell-types-short-name">Abn WBC</span>
+            <span class="flex-cell-types-acronym-name">ABN</span>
+          </div>
+          <div id="conc_num_abn_wbc">0</div>
+          <div id="conc_perc_abn_wbc">0</div>
+          <div id="conc_abs_abn_wbc">0</div>
+        </div>
+        
+        <div class="cell_conc_cells">
+          <div>
+            <input type="text" id="diff_rep_key_nrbc"
+                    value="." size="1" maxlength="1">
+          </div>
+          <div id="conc_name_nrbc"
+                class="cell_conc_cells_no_total"
+                style="text-align:right;">
+            <span class="flex-cell-types-full-name">Nucleated Red Blood Cell</span>
+            <span class="flex-cell-types-short-name">Nucleated RBC</span>
+            <span class="flex-cell-types-acronym-name">nRBC</span>
+          </div>
+          <div id="conc_num_nrbc" class="cell_conc_cells_no_total">0</div>
+          <div id="conc_perc_nrbc" class="cell_conc_cells_no_total">0</div>
+          <div id="conc_abs_nrbc" class="cell_conc_cells_no_total">0</div>
+        </div>
+        
+        
+        <!-- Add another -->
+        <div id="cell_conc_cells_add_cell" 
+              class="cell_conc_cells" 
+              title="Add Another..." 
+              style="text-align:center;margin:0 auto;border-bottom:none;">
+          <input type="button" id="diff_add_another"
+                  class="button"
+                  onclick="add_new_cell_type()"
+                  value="&plus; Add Cell Type">
+        </div>
+        
+        <div id="cell_conc_cells_totals"
+              class="cell_conc_cells">
+          <div></div>
+          <div id="conc_name_total" style="text-align:right;">
+            <span>Total</span>
+          </div>
+          <div id="conc_num_total">0</div>
+          <div id="conc_perc_total">0</div>
+          <div id="conc_abs_total">0</div>
+        </div>
+          
+      </div>
+      
+      <div id="wbc_diff_morph"
+            style="display:flex;flex-direction:column;flex:1 0 100px;">
+        
+      <!-- WBC Differential -->
+      <div id="flex_cell_diff_container"> <!-- sytle="display:flex;width:50%;" -->
+        
+        <div id="cell_diff_container_head">
+          <div>Differential</div>
+        </div>
+        
+        <div class="flex-full" 
+              title="Perform cell differential using the keyboard associations above as input here"
+              style="text-align:left;margin:5px;">
+          <!--label for="cell_counts">Differential Count:</label-->
+         
+          <textarea id="cell_counts" rows="1"
+                      class="textarea_empty"
+                      placeholder="Type the respective labelled keyboard associations"
+                      spellcheck="false"
+                      onfocus="cursor_at_end(event);update_letter_spacing(this);"
+                      onfocusout="OnInput(event);
+                                    update_cell_counts(this);
+                                    ucwbc_check();
+                                    remove_white_space(this);"
+                      onpaste="OnInput(event);update_cell_counts(this)"
+                      onkeydown="enter_to_tab(this);
+                                  remove_white_space(this);"
+                      onkeyup="OnInput(event);
+                                ucwbc_check();
+                                update_cell_counts(this);"
+                      onkeypress="update_cell_counts(this);"></textarea>
+                      
+        <div id="cell_counts_total"
+              class="flex-full"
+              style="margin-top:5px;">Total:</div>
+        <div id="cell_counts_warning"
+              class="flex-full"
+              style="display:none;">
+          <span style="color:red;font-weight:bold;">Warning(s):</span>
+          <ul id="diff_warning_area">
+            <li>Missing</li>
+          </ul> 
+        </div>
+        
+        </div>
+      </div>
+      
+      <!-- WBC Morphology -->
+      <div id="flex_cell_diff_morphology"> <!-- sytle="display:flex;width:50%;" -->
+        
+        
+        <div id="cell_diff_container_head">
+          <div>WBC Morphology</div>
+        </div>
+        
+        <div style="margin-left:5px;">
+          
+          <!-- Smudge Cells -->
+          <div id="wbc_morph_smudge"
+                class="rbc_morph_incl_div"
+                style="margin-top:10px;padding:2px 0;">
+            <div class="wbc_morphs">
+              <span class="flex-cell-types-full-name">Smudge Cells</span>
+              <span class="flex-cell-types-short-name">Smudge Cells</span>
+              <span class="flex-cell-types-acronym-name">Smudge</span>
+            </div>
+          </div>
+        
+          <!-- Hypersegmentation -->
+          <div id="wbc_morph_hyperseg"
+                class="rbc_morph_incl_div"
+                style="padding:2px 0;">
+            <div class="wbc_morphs">
+              <span class="flex-cell-types-full-name">Hypersegmentation</span>
+              <span class="flex-cell-types-short-name">Hypersegmentation</span>
+              <span class="flex-cell-types-acronym-name">Hyperseg</span>
+            </div>
+          </div>
+        
+          <!-- Auer Rods -->
+          <div id="wbc_morph_auerrods"
+                class="rbc_morph_incl_div"
+                style="padding:2px 0;">
+            <div class="wbc_morphs">
+              <span>Auer Rods</span>
+              <!--span class="flex-cell-types-full-name">Auer Rods</span>
+              <span class="flex-cell-types-short-name"></span>
+              <span class="flex-cell-types-acronym-name"></span-->
+            </div>
+          </div>
+        
+          <!-- Toxic Granulation -->
+          <div id="wbc_morph_toxic"
+                class="rbc_morph_incl_div"
+                style="padding:2px 0;">
+            <div class="wbc_morphs">
+              <span class="flex-cell-types-full-name">Toxic Granulation</span>
+              <span class="flex-cell-types-short-name">Toxic Granulation</span>
+              <span class="flex-cell-types-acronym-name">Toxic Gran</span>
+            </div>
+          </div>
+        
+          <!-- Vaculated Neutrophils -->
+          <div id="wbc_morph_vacs"
+                class="rbc_morph_incl_div"
+                style="padding:2px 0;">
+            <div class="wbc_morphs">
+              <span class="flex-cell-types-full-name">Vaculated Neutrophils</span>
+              <span class="flex-cell-types-short-name">Vaculated Neutrophils</span>
+              <span class="flex-cell-types-acronym-name">Vac Neuts</span>
+            </div>
+          </div>
+          
+        </div>
+          
+      <!-- Pathologist Review and Comments -->
+        
+      <div id="path_rev_comments_area"
+            class="print">
+        
+        <div id="cell_diff_wbc_comments"
+              style="margin-top:10px;">
+          <div>Comments</div>
+        </div>
+        
+        <div style="margin:0 5px;">
+          
+          <!-- Pathologist Review -->
+          <div id="wbc_morph_path_rev"
+                class="rbc_morph_incl_div"
+                style="margin-top:10px;">
+            <div class="path_rev">Pathologist Review</div>
+            <div style="margin:5px;"></div>
+            <textarea id="path_rev_comments"
+                        placeholder="WBC comments or notes?"
+                        onkeyup="OnInput(event);"
+                        onfocusout="remove_white_space(this);"></textarea>
+          </div>
+          
+        </div>
+      </div>
+          
+        </div>
+      </div>
+      
+      </div>
+      
+    </div>
+    
+  </div>
+
+    <!-- RBC Morphology -->
+    <div id="rbc_morph_area"
+          style="">
+    
+    <div class="flex-full">
+      <h3 style="text-align:left;">Red Blood Cells</h3>
+    </div>
+    
+    <div id="rbc_morphologies"
+          style="margin:10px;">
+        
+        <!-- RBC Morph, Header -->
+      <div class="flex-full"
+              style="font-weight:bold;padding: 3px 0;
+                      border-bottom: 2px solid black;">
+          <div style="text-align:left;display:inline;">RBC Morphology</div>
+          <div id="rbc_morph_select_grade_type">
+            <div id="rbc_morph_grade_slmodmk"
+                  class="rbc_grade_type rbc_grade_type_active"
+                  onclick="rbc_grade_type_change(event);">
+              SL,MD,MK
+            </div>
+            <div id="rbc_morph_grade_123"
+                  class="rbc_grade_type"
+                  onclick="rbc_grade_type_change(event);">
+              1+,2+,3+
+            </div>
+          </div>
+        </div>
+        
+      
+      <!-- RBC Morph Area -->
+      <div id="rbc_morph_abnorms" 
+            class="flex-container">
+      
+      <!-- RBC Morph, Size and [Hgb] -->  
+      <div id="rbc_morph_size_hgb"
+            class="flex-container"
+            style="flex-direction:column;margin-left:10px;">
+          
+          <!-- Normal -->
+          <div id="rbc_morph_norm"
+                class="rbc_morph_incl_div"
+                style="margin-left:-5px;padding:2px 0;">
+            <span class="rbc_morph_class_norm">Normal</span>
+          </div>
+          
+          <!-- Anisocytosis -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Anisocytosis</div>
+            <div id="rbc_morph_aniso_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_aniso_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_aniso_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Microcytosis -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Microcytosis</div>
+            <div id="rbc_morph_micro_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_micro_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_micro_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Macrocytosis -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Macrocytosis</div>
+            <div id="rbc_morph_macro_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_macro_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_macro_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Hypochromasia -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Hypochromasia</div>
+            <div id="rbc_morph_hypo_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_hypo_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_hypo_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Polychromasia -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Polychromasia</div>
+            <div id="rbc_morph_poly_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_poly_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_poly_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+        
+      </div>
+      
+      
+      <!-- RBC Morph, Poik Area -->  
+      <div id="rbc_morph_poik_area"
+            class="flex-container"
+            style="flex-direction:row;">
+        
+        <!-- RBC Morph, Poikilocytes 1 -->  
+        <div id="rbc_morph_poik1"
+              class="flex-container"
+              style="flex-direction:column;margin-left:10px;">
+          
+          <!-- Header -->
+          <!--div class="flex-container" 
+                style="flex-direction:row;flex-wrap:nowrap;
+                        border-bottom:1px solid black;text-align:center;
+                        margin-bottom:5px;">
+            <div class="rbc_morph_descr">
+            </div>
+            <div style="max-width:30px;min-width:30px;text-align:center;">
+              SL
+            </div>
+            <div style="max-width:30px;min-width:30px;text-align:center;">
+              MD
+            </div>
+            <div style="max-width:30px;min-width:30px;text-align:center;">
+              MK
+            </div>
+          </div-->
+          
+          <!-- Poikilocytosis -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Poikilocytosis</div>
+            <div id="rbc_morph_poik_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_poik_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_poik_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Acanthocytes -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Acanthocytes</div>
+            <div id="rbc_morph_acan_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_acan_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_acan_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Echinocytes -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Echinocytes</div>
+            <div id="rbc_morph_echin_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_echin_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_echin_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Elliptocytes -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Elliptocytes</div>
+            <div id="rbc_morph_ellip_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_ellip_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_ellip_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Folded -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Folded</div>
+            <div id="rbc_morph_fold_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_fold_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_fold_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Ovaloctyes -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Ovaloctyes</div>
+            <div id="rbc_morph_oval_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_oval_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_oval_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+        </div>
+        
+        <!-- RBC Morph, Poikilocytes 2 -->
+        <div id="rbc_morph_poik2"
+              class="flex-container"
+              style="flex-direction:column;margin-left:10px;">
+          
+          <!-- Header -->
+          <!--div class="flex-container" 
+                style="flex-direction:row;flex-wrap:nowrap;
+                        border-bottom:1px solid black;text-align:center;
+                        margin-bottom:5px;">
+            <div class="rbc_morph_descr">
+            </div>
+            <div style="max-width:30px;min-width:30px;text-align:center;">
+              SL
+            </div>
+            <div style="max-width:30px;min-width:30px;text-align:center;">
+              MD
+            </div>
+            <div style="max-width:30px;min-width:30px;text-align:center;">
+              MK
+            </div>
+          </div-->
+          
+          <!-- Schistocytes -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Schistocytes</div>
+            <div id="rbc_morph_schis_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_schis_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_schis_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Sickle -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Sickle</div>
+            <div id="rbc_morph_sick_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_sick_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_sick_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Spherocyte -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Spherocyte</div>
+            <div id="rbc_morph_spher_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_spher_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_spher_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Stomatocyte -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Stomatocyte</div>
+            <div id="rbc_morph_stom_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_stom_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_stom_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Target -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Target</div>
+            <div id="rbc_morph_targ_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_targ_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_targ_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+          <!-- Teardrop -->
+          <div class="flex-container rbc_morph_containers">
+            <div class="rbc_morph_descr">Teardrop</div>
+            <div id="rbc_morph_tear_sl"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">SL</span>
+              <span class="rbc_grade_num">1+</span>
+              </div>
+            <div id="rbc_morph_tear_mod"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MD</span>
+              <span class="rbc_grade_num">2+</span>
+              </div>
+            <div id="rbc_morph_tear_mk"
+                  class="rbc_morph_grade">
+              <span class="rbc_grade_name">MK</span>
+              <span class="rbc_grade_num">3+</span>
+              </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+          
+        <!-- RBC Inclusions and RBC Other -->
+        
+      <!-- RBC Morph, Abnormal -->
+      <div id="rbc_morph_inclus" 
+            class="flex-container">
+          
+        <!-- Basophilic Stippling -->
+        <div id="rbc_morph_basostip"
+              class="rbc_morph_incl_div"
+              style="min-width: 150px;">
+          <span class="rbc_morph_incl">Basophilic Stippling</span>
+        </div>
+        
+        <!-- Howell Jolly -->
+        <div id="rbc_morph_howjol"
+              class="rbc_morph_incl_div">
+          <span class="rbc_morph_incl">Howell Jolly</span>
+        </div>
+        
+        <!-- Pappenheimer -->
+        <div id="rbc_morph_pappen"
+              class="rbc_morph_incl_div">
+          <span class="rbc_morph_incl">Pappenheimer</span>
+        </div>
+        
+        <!-- Cabot Rings -->
+        <div id="rbc_morph_cabot"
+              class="rbc_morph_incl_div">
+          <span class="rbc_morph_incl">Cabot Rings</span>
+        </div>
+        
+        <!-- Agglutination -->
+        <div id="rbc_morph_agglut"
+              class="rbc_morph_incl_div">
+          <span class="rbc_morph_incl">Agglutination</span>
+        </div>
+        
+        <!-- Rouleaux -->
+        <div id="rbc_morph_roul"
+              class="rbc_morph_incl_div">
+          <span class="rbc_morph_incl">Rouleaux</span>
+        </div>
+        
+      </div>
+      
+          
+      <!-- RBC Comments -->
+        
+      <div id="rbc_comments_area"
+            class="print">
+        
+        <div style="margin-left:5px;">
+          
+          <div id=""
+                class="rbc_morph_incl_div"
+                style="margin:10px 10px 0 0;">
+            <textarea id="textarea_rbc_comments"
+                        placeholder="RBC comments or notes?"
+                        onkeyup="OnInput(event);"
+                        onfocusout="remove_white_space(this);"></textarea>
+          </div>
+        </div>
+      </div>
+        
+        
+    </div>
+    
+    
+  
+  </div>
+    
+        
+  <!-- PLT Morphology -->
+    <div id="plt_morph_area"
+          style="">
+    
+     <div class="flex-full">
+      <h3 style="text-align:left;">Platelets</h3>
+    </div>
+      
+    <div id="plt_area"
+            style="display:flex;flex-direction:column;flex:1 0 100px;margin:10px;">
+        
+      <!-- PLT Morphology -->
+      <div style="display: flex;">
+          
+        <!-- RBC Est, Header -->
+        <div class="flex-container"
+              style="align-content: start;
+                      width: 100px;">
+
+          <div class="flex-full"
+              style="font-weight:bold;padding: 3px 0;
+                      border-bottom: 2px solid black;">
+            <div style="text-align:left;display:inline;">PLT Estimate</div>
+          </div>
+
+          <div id="plt_est_selects">
+          
+            <!-- Low -->
+            <div id="plt_est_low"
+                  class="rbc_morph_incl_div"
+                  style="padding:2px 0;">
+              <span class="plt_morphs">Low</span>
+            </div>
+            
+            <!-- Normal -->
+            <div id="plt_est_norm"
+                  class="rbc_morph_incl_div"
+                  style="padding:2px 0;">
+              <span class="plt_morphs">Normal</span>
+            </div>
+            
+            <!-- High -->
+            <div id="plt_est_high"
+                  class="rbc_morph_incl_div"
+                  style="padding:2px 0;">
+              <span class="plt_morphs">High</span>
+            </div>
+
+          </div>
+          
+        </div>
+
+        <!-- RBC Morph, Header -->
+        <div class="flex-container"
+              style="display: flex;
+                      align-content: start;
+                      width: 100%; 
+                      padding-left: 20px;">
+
+          <div class="flex-full"
+                style="font-weight:bold;padding: 3px 0;
+                        border-bottom: 2px solid black;">
+            <div style="text-align:left;display:inline;">PLT Morphology</div>
+          </div>
+          
+          <div id="plt_morph_selects"
+                style="display: flex;">
+            
+            <!-- Giant -->
+            <div id="plt_morph_giant"
+                  class="rbc_morph_incl_div"
+                  style="padding:2px 0;">
+              <span class="plt_morphs">Giant Platelets</span>
+            </div>
+            
+            <!-- Platelet Clumps -->
+            <div id="plt_morph_clumps"
+                  class="rbc_morph_incl_div"
+                  style="padding:2px 0;">
+              <span class="plt_morphs">Platelet Clumps</span>
+            </div>
+            
+            <!-- Platelet Satellitism -->
+            <div id="plt_morph_satellitism"
+                  class="rbc_morph_incl_div"
+                  style="padding:2px 0;">
+              <span class="plt_morphs">Platelet Satellitism</span>
+            </div>
+            
+            <!-- Platelet Hypogranular -->
+            <div id="plt_morph_hypogranular"
+                  class="rbc_morph_incl_div"
+                  style="padding:2px 0;">
+              <span class="plt_morphs">Platelet Hypogranular</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      </div>
+        
+            
+        <!-- PLT Comments -->
+          
+        <div id="plt_comments_area"
+              class="print">
+          
+          <div style="margin-left:5px;">
+            
+            <div id=""
+                  class="rbc_morph_incl_div"
+                  style="margin:10px 10px 0 0">
+              <textarea id="textarea_plt_comments"
+                          placeholder="PLT comments or notes?"
+                          onkeyup="OnInput(event);"
+                          onfocusout="remove_white_space(this);"></textarea>
+            </div>
+          </div>
+        </div>
+          
+      </div>
+        
+    </div>
+    
+  </div>
+      
+</div>
+    
+<div id="footer"
+      class="flex-full" 
+      style="max-width:800px;
+              min-width:150px;
+              margin:0 auto;
+              padding:0 20px;
+              text-align:center;">
+    <a href="https://forms.office.com/r/beqJ7J3EKS" target="_blank">
+      <div style="padding:20px;border-top: solid;">Feedback?</div></a>
+</div>
+    
+  </div>
+
+  
+
+  
+</div>
+
+<div id="accountablility_check"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;
+                background:rgb(0,0,0,0.3);
+                display:flex;justify-content:center;">
+    <div class="a_c_blocker">
+        <p style="font-size: 24px;">You agree to validate all calculations when using this tool for patient sample processing?</p>
+        <button class="a_c_button" onclick="a_c_checked();">Yes</button>
+        <br>
+        <button class="a_c_button">No</button>
+    </div>
+  </div>
+
+<script src="scripts.js" defer></script>
+<script>
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' });
+  }
+  </script>
+  
+  
+</body>
 </html>
