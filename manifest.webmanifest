@@ -1,7 +1,8 @@
 {
     "name": "Peripheral Blood Smear Evaluation Tool",
     "short_name": "PBS Eval",
-    "start_url": "/",
+    "id": "https://www.brettmrice.com/pbs-eval/",
+    "start_url": "./pbs-eval/",
     "display": "standalone",
     "background_color": "#fff",
     "description": "App to assist in peripheral blood smear WBC, RBC, and PLT evaluations.",
