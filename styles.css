@@ -11,8 +11,51 @@ html, body {
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 12px;
 }
-h1 {
+#page_title > div > h1 {
   text-align: center;
+  margin-bottom: 5px;
+}
+#report_area {
+  overflow: hidden;
+  margin: 2px 0;
+  position: relative;
+}
+#help_area {
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.help_area_close {
+  display: none;
+}
+.help_area_open {
+  display: flex;
+}
+#but_close_help {
+  padding: 10px;
+  box-shadow: 0px -2px 5px -2px #000;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0 0 10px 10px;
+}
+#but_close_help:hover {
+  background: red;
+}
+#footer {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+}
+#footer > div {
+  display: flex;
+  flex: 0 0 25%;
+  padding: 5px 10px;
+}
+#footer img {
+  cursor: pointer;
 }
 .h1-full {
   display: inline;
@@ -284,7 +327,7 @@ li:before {
 #conc_num_nrbc,
 #conc_perc_nrbc,
 #conc_abs_nrbc {
-  opacity: 0.5;
+  color: rgba(0, 0, 0, 0.5);
 }
 .cell_conc_cells > div {
   align-self: center;
@@ -604,6 +647,9 @@ li:before {
   .h1-medium {
     display: none;
   }
+  h1 {
+    margin-top: 5px;
+  }
   .h1-short {
     display: inline;
   }
@@ -780,6 +826,9 @@ li:before {
   .wrong_value_active_anim,
   .wrong_value_inactive_anim{
     animation-iteration-count: 0;
+  }
+  #help_area {
+    display: none;
   }
 }
 

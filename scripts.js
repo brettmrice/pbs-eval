@@ -1256,3 +1256,12 @@ function a_c_checked() {
   accountablility_check.style.display = "none";
   document.getElementsByTagName("body")[0].classList.remove("noscroll");
 }
+
+
+function show_hide_help_area() {
+  if(help_area.classList.contains("help_area_close")) {
+    help_area.classList.replace("help_area_close", "help_area_open");
+  } else {
+    help_area.classList.replace("help_area_open", "help_area_close");
+  }
+}
