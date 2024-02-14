@@ -48,6 +48,7 @@ html, body {
   display: flex;
   width: 100%;
   max-width: 800px;
+  padding: 5px 20px 10px 20px;
 }
 #footer > div {
   display: flex;
@@ -56,6 +57,7 @@ html, body {
 }
 #footer img {
   cursor: pointer;
+  height: 30px;
 }
 .h1-full {
   display: inline;
@@ -721,6 +723,21 @@ li:before {
   .task_descr_format > span.flex-cell-types-acronym-name,
   .task_to_do_diff_morph > span.flex-cell-types-acronym-name,
   .task_to_do_est > span.flex-cell-types-acronym-name {
+    display: none;
+  }
+  #wbc_area {
+    flex-direction: column;
+  }
+  .flex-cell-concentrations {
+    width: 100%;
+  }
+  .flex-cell-types-full-name {
+    display: inline;
+  }
+  .flex-cell-types-short-name {
+    display: none;
+  }
+  .flex-cell-types-acronym-name {
     display: none;
   }
 }
