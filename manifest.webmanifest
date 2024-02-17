@@ -1,6 +1,7 @@
 {
     "name": "Peripheral Blood Smear Evaluation Tool",
     "short_name": "PBS Eval",
+    "id": "/pbs-eval/",
     "start_url": "https://www.brettmrice.com/pbs-eval/",
     "display": "standalone",
     "background_color": "#fff",
