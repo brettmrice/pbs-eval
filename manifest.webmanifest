@@ -4,7 +4,7 @@
     "id": "/pbs-eval/",
     "start_url": "https://www.brettmrice.com/pbs-eval/",
     "scope": "https://www.brettmrice.com/pbs-eval/",
-    "serviceworker": 
+    "serviceworker": "/",
     "display": "standalone",
     "display_override": ["minimal-ui", "browser"],
     "background_color": "#fff",
