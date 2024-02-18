@@ -18,7 +18,7 @@
       {
         "name": "New evaluation",
         "url": "./",
-        "icon": "imgs/icons/icon-pbs-96.png"
+        "icons": "imgs/icons/icon-pbs-96.png"
       }
     ],
     "launch_handler": {
