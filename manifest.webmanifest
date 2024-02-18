@@ -24,6 +24,9 @@
     "launch_handler": {
         "client_mode": ["focus-existing", "auto"]
     },
+    "edge_side_panel": {
+        "preferred_width": 400
+      },
     "icons": [
       {
         "src": "imgs/icons/icon_pbs.svg",
