@@ -6,7 +6,7 @@
     "scope": "https://www.brettmrice.com/pbs-eval/",
     "serviceworker": 
     "display": "standalone",
-    "display_override": ["standalone", "browser"],
+    "display_override": ["minimal-ui", "browser"],
     "background_color": "#fff",
     "theme_color": "#363945",
     "orientation": any,
