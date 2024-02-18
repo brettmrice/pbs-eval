@@ -15,7 +15,8 @@
     "shortcuts" : [
       {
         "name": "New evaluation",
-        "url": "/"
+        "url": "./",
+        "icon": "imgs/icons/icon-pbs-96.png"
       }
     ],
     "icons": [
