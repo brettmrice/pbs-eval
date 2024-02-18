@@ -9,7 +9,7 @@
     "display_override": ["minimal-ui", "browser"],
     "background_color": "#fff",
     "theme_color": "#363945",
-    "orientation": any,
+    "orientation": "any",
     "description": "App to assist in peripheral blood smear WBC, RBC, and PLT evaluations.",
     "categories": ["education", "health", "medical", "productivity", "utilities"],
     "shortcuts" : [
