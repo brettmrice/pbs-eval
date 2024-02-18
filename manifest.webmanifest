@@ -3,9 +3,21 @@
     "short_name": "PBS Eval",
     "id": "/pbs-eval/",
     "start_url": "https://www.brettmrice.com/pbs-eval/",
+    "scope": "https://www.brettmrice.com/pbs-eval/",
+    "serviceworker": 
     "display": "standalone",
+    "display_override": ["standalone", "browser"],
     "background_color": "#fff",
+    "theme_color": "#363945",
+    "orientation": any,
     "description": "App to assist in peripheral blood smear WBC, RBC, and PLT evaluations.",
+    "categories": ["education", "health", "medical", "productivity", "utilities"],
+    "shortcuts" : [
+      {
+        "name": "New evaluation",
+        "url": "/"
+      }
+    ],
     "icons": [
       {
         "src": "imgs/icons/icon_pbs.svg",
