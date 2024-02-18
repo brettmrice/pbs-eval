@@ -11,6 +11,7 @@
     "theme_color": "#363945",
     "orientation": "any",
     "description": "App to assist in peripheral blood smear WBC, RBC, and PLT evaluations.",
+    "direction": "ltr",
     "categories": ["education", "health", "medical", "productivity", "utilities"],
     "shortcuts" : [
       {
@@ -19,6 +20,9 @@
         "icon": "imgs/icons/icon-pbs-96.png"
       }
     ],
+    "launch_handler": {
+        "client_mode": ["focus-existing", "auto"]
+    },
     "icons": [
       {
         "src": "imgs/icons/icon_pbs.svg",
