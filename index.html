@@ -1140,11 +1140,11 @@
           <!-- RBC Morph Area -->
           <div id="rbc_morph_abnorms" 
                 class="flex-container">
-          
+
           <!-- RBC Morph, Size and [Hgb] -->  
-          <div id="rbc_morph_size_hgb"
+          <div id="rbc_morph_size_hgb_norm"
                 class="flex-container"
-                style="flex-direction:column;margin-left:10px;">
+                style="flex-direction:column;margin-left:10px;width:100%;">
               
               <!-- Normal -->
               <div id="rbc_morph_norm"
@@ -1152,6 +1152,12 @@
                     style="margin-left:-5px;padding:2px 0;">
                 <span class="rbc_morph_class_norm">Normal</span>
               </div>
+          </div>
+          
+          <!-- RBC Morph, Size and [Hgb] -->  
+          <div id="rbc_morph_size_hgb"
+                class="flex-container"
+                style="flex-direction:column;margin-left:10px;">
               
               <!-- Anisocytosis -->
               <div class="flex-container rbc_morph_containers">
@@ -1252,6 +1258,26 @@
                   <span class="rbc_grade_num">3+</span>
                   </div>
               </div>
+              
+              <!-- Poikilocytosis -->
+              <div class="flex-container rbc_morph_containers">
+                <div class="rbc_morph_descr">Poikilocytosis</div>
+                <div id="rbc_morph_poik_sl"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">SL</span>
+                  <span class="rbc_grade_num">1+</span>
+                  </div>
+                <div id="rbc_morph_poik_mod"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">MD</span>
+                  <span class="rbc_grade_num">2+</span>
+                  </div>
+                <div id="rbc_morph_poik_mk"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">MK</span>
+                  <span class="rbc_grade_num">3+</span>
+                  </div>
+              </div>
             
           </div>
           
@@ -1284,26 +1310,6 @@
                 </div>
               </div-->
               
-              <!-- Poikilocytosis -->
-              <div class="flex-container rbc_morph_containers">
-                <div class="rbc_morph_descr">Poikilocytosis</div>
-                <div id="rbc_morph_poik_sl"
-                      class="rbc_morph_grade">
-                  <span class="rbc_grade_name">SL</span>
-                  <span class="rbc_grade_num">1+</span>
-                  </div>
-                <div id="rbc_morph_poik_mod"
-                      class="rbc_morph_grade">
-                  <span class="rbc_grade_name">MD</span>
-                  <span class="rbc_grade_num">2+</span>
-                  </div>
-                <div id="rbc_morph_poik_mk"
-                      class="rbc_morph_grade">
-                  <span class="rbc_grade_name">MK</span>
-                  <span class="rbc_grade_num">3+</span>
-                  </div>
-              </div>
-              
               <!-- Acanthocytes -->
               <div class="flex-container rbc_morph_containers">
                 <div class="rbc_morph_descr">Acanthocytes</div>
@@ -1324,9 +1330,49 @@
                   </div>
               </div>
               
-              <!-- Echinocytes -->
+              <!-- Bite Cell -->
               <div class="flex-container rbc_morph_containers">
                 <div class="rbc_morph_descr">Echinocytes</div>
+                <div id="rbc_morph_bite_sl"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">SL</span>
+                  <span class="rbc_grade_num">1+</span>
+                  </div>
+                <div id="rbc_morph_bite_mod"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">MD</span>
+                  <span class="rbc_grade_num">2+</span>
+                  </div>
+                <div id="rbc_morph_bite_mk"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">MK</span>
+                  <span class="rbc_grade_num">3+</span>
+                  </div>
+              </div>
+              
+              <!-- Blister Cell -->
+              <div class="flex-container rbc_morph_containers">
+                <div class="rbc_morph_descr">Bite</div>
+                <div id="rbc_morph_blister_sl"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">SL</span>
+                  <span class="rbc_grade_num">1+</span>
+                  </div>
+                <div id="rbc_morph_blister_mod"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">MD</span>
+                  <span class="rbc_grade_num">2+</span>
+                  </div>
+                <div id="rbc_morph_blister_mk"
+                      class="rbc_morph_grade">
+                  <span class="rbc_grade_name">MK</span>
+                  <span class="rbc_grade_num">3+</span>
+                  </div>
+              </div>
+              
+              <!-- Echinocytes -->
+              <div class="flex-container rbc_morph_containers">
+                <div class="rbc_morph_descr">Blister</div>
                 <div id="rbc_morph_echin_sl"
                       class="rbc_morph_grade">
                   <span class="rbc_grade_name">SL</span>
@@ -1344,9 +1390,9 @@
                   </div>
               </div>
               
-              <!-- Elliptocytes -->
+              <!-- Elliptocytes/Ovalocytes -->
               <div class="flex-container rbc_morph_containers">
-                <div class="rbc_morph_descr">Elliptocytes</div>
+                <div class="rbc_morph_descr">Ellipto/Ovalo</div>
                 <div id="rbc_morph_ellip_sl"
                       class="rbc_morph_grade">
                   <span class="rbc_grade_name">SL</span>
@@ -1378,26 +1424,6 @@
                   <span class="rbc_grade_num">2+</span>
                   </div>
                 <div id="rbc_morph_fold_mk"
-                      class="rbc_morph_grade">
-                  <span class="rbc_grade_name">MK</span>
-                  <span class="rbc_grade_num">3+</span>
-                  </div>
-              </div>
-              
-              <!-- Ovaloctyes -->
-              <div class="flex-container rbc_morph_containers">
-                <div class="rbc_morph_descr">Ovaloctyes</div>
-                <div id="rbc_morph_oval_sl"
-                      class="rbc_morph_grade">
-                  <span class="rbc_grade_name">SL</span>
-                  <span class="rbc_grade_num">1+</span>
-                  </div>
-                <div id="rbc_morph_oval_mod"
-                      class="rbc_morph_grade">
-                  <span class="rbc_grade_name">MD</span>
-                  <span class="rbc_grade_num">2+</span>
-                  </div>
-                <div id="rbc_morph_oval_mk"
                       class="rbc_morph_grade">
                   <span class="rbc_grade_name">MK</span>
                   <span class="rbc_grade_num">3+</span>
